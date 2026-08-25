@@ -55,7 +55,11 @@ Greater number is: 80
 
 ### OUTPUT:
 
-<img width="944" height="596" alt="image" src="https://github.com/user-attachments/assets/16535aec-5c17-4820-be78-1f228947e169" />
+
+<img width="957" height="278" alt="Screenshot 2026-08-25 102423" src="https://github.com/user-attachments/assets/2674e22d-83b6-4415-8914-78dcad7e94ab" />
+
+
+
 
 
 ---
@@ -92,7 +96,8 @@ Sum of first 10 natural numbers is: 55
 
 ### OUTPUT:
 
-<img width="947" height="585" alt="image" src="https://github.com/user-attachments/assets/0c22a3d9-e56f-46d9-a10e-9c52de216c58" />
+<img width="940" height="152" alt="Screenshot 2026-08-25 102557" src="https://github.com/user-attachments/assets/dd5621cc-12a1-41fb-8af5-12eb2829dfb6" />
+
 
 ---
 
@@ -136,7 +141,8 @@ Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 
 ### OUTPUT:
 
-<img width="915" height="598" alt="image" src="https://github.com/user-attachments/assets/4c8ed11c-8684-45d7-a053-b3443c4cf530" />
+<img width="952" height="422" alt="Screenshot 2026-08-25 102709" src="https://github.com/user-attachments/assets/7dd7e26d-b362-4f25-b3e6-7c929323286a" />
+
 
 
 
@@ -177,7 +183,7 @@ Reversed number is 5351
 
 ### OUTPUT:
 
-<img width="914" height="668" alt="image" src="https://github.com/user-attachments/assets/7fe076ae-baf6-419d-8b8a-e910dcc0c2cf" />
+<img width="978" height="280" alt="Screenshot 2026-08-25 102809" src="https://github.com/user-attachments/assets/7ed41bc9-2789-443a-bfbe-b0fef469812d" />
 
 
 ---
@@ -214,7 +220,8 @@ Largest of three number is 15
 
 ### OUTPUT:
 
-<img width="937" height="594" alt="image" src="https://github.com/user-attachments/assets/a292a743-c269-43b3-9ead-d337be64e5f2" />
+<img width="951" height="277" alt="Screenshot 2026-08-25 102956" src="https://github.com/user-attachments/assets/957917dc-4e30-4f1a-86dd-5e6f7354b4a7" />
+
 
 
 ## RESULT
