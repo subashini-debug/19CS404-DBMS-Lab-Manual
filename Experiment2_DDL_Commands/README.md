@@ -104,124 +104,194 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
 
-```sql
--- Paste your SQL code below for Question 1
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
+
+## CODE:
 ```
+create table Employees(
+EmployeeID int primary key ,
+FirstName varchar(100) not null,
+Lastname varchar(100) not null,
+Email varchar(255) not null unique,
+Salary decimal(10,2) check (salary>0),
+DepartmentID int not null,
+Foreign key (DepartmentID) references Departments(DepartmentID)
+);
+```
+## OUTPUT:
 
-**Output:**
+<img width="1253" height="727" alt="Screenshot 2026-08-26 173934" src="https://github.com/user-attachments/assets/fac5a358-9fc5-4492-ad47-3378c392bede" />
 
-![Output1](output.png)
 
 **Question 2**
----
--- Paste Question 2 here
 
-```sql
--- Paste your SQL code below for Question 2
+Create a table named Tasks with the following columns:
+
+TaskID as INTEGER
+TaskName as TEXT
+DueDate as DATE
+
+## CODE:
 ```
+create table Tasks( TaskID INTEGER,TaskName TEXT,DueDate DATE);
+```
+## OUTPUT:
 
-**Output:**
+<img width="1230" height="713" alt="Screenshot 2026-08-26 173952" src="https://github.com/user-attachments/assets/78c8893e-bd64-4496-9179-51bd2a910984" />
 
-![Output2](output.png)
 
 **Question 3**
----
--- Paste Question 3 here
 
-```sql
--- Paste your SQL code below for Question 3
+In the Cusomers table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+CustomerID  Name          Address      City        ZipCode
+----------  ------------  ----------   ----------  ----------
+306         Diana Prince  Themyscira
+307         Bruce Wayne   Wayne Manor  Gotham      10007
+308         Peter Parker  Queens                   11375
+
+## CODE:
 ```
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(306,'Diana Prince','Themyscira',null,null);
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(307,'Bruce Wayne','Wayne Manor','Gotham',10007);
+INSERT INTO Customers(CustomerID,Name,Address,City,ZipCode)
+VALUES(308,'Peter Parker','Queens',null,11375);
+```
+## OUTPUT:
 
-**Output:**
+<img width="1166" height="615" alt="Screenshot 2026-08-26 174009" src="https://github.com/user-attachments/assets/5db37da1-0ead-41a0-b4f6-1feb2d88cff9" />
 
-![Output3](output.png)
 
 **Question 4**
----
--- Paste Question 4 here
 
-```sql
--- Paste your SQL code below for Question 4
+Write an SQL command can to add a column named email of type TEXT to the customers table
+
+## CODE:
+```
+ALTER TABLE Customers ADD COLUMN email TEXT;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1190" height="625" alt="Screenshot 2026-08-26 174023" src="https://github.com/user-attachments/assets/9d2f5b26-a2c9-4218-8c78-35741a94f3ee" />
+
 
 **Question 5**
----
--- Paste Question 5 here
 
-```sql
--- Paste your SQL code below for Question 5
+Insert all books from Out_of_print_books into Books
+
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
+
+## CODE:
+```
+INSERT INTO Books(ISBN,Title,Author,Publisher,YearPublished)
+select ISBN,Title,Author,Publisher,YearPublished
+From Out_of_print_books;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1232" height="637" alt="Screenshot 2026-08-26 174035" src="https://github.com/user-attachments/assets/37ac569a-aa23-4103-a1a5-fd9a55cd4064" />
+
 
 **Question 6**
----
--- Paste Question 6 here
 
-```sql
--- Paste your SQL code below for Question 6
+Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
+
+## CODE:
+```
+create table contacts(
+contact_id int primary key,first_name text not null,last_name text not null,email text,
+phone text not null check(LENGTH(phone)>=10));
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1266" height="667" alt="Screenshot 2026-08-26 174046" src="https://github.com/user-attachments/assets/4d69fd02-677a-4e5b-bc7f-0229b981658d" />
+
 
 **Question 7**
----
--- Paste Question 7 here
 
-```sql
--- Paste your SQL code below for Question 7
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
+
+## CODE:
+```
+create table ProjectAssignments(AssignmentID int primary key,
+EmployeeID int references Employees(EmployeeID),ProjectID int references Projects(ProjectID),
+AssignmentDate date not null);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1227" height="647" alt="Screenshot 2026-08-26 174058" src="https://github.com/user-attachments/assets/c34b81da-5578-46c3-b462-356131b2e5c6" />
+
 
 **Question 8**
----
--- Paste Question 8 here
 
-```sql
--- Paste your SQL code below for Question 8
+Create a table named Attendance with the following constraints:
+AttendanceID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+AttendanceDate as DATE.
+Status as TEXT should be one of 'Present', 'Absent', 'Leave'.
+
+## CODE:
+```
+create table Attendance(
+AttendanceID int primary key,
+EmployeeID int references Employees(EmployeeID),
+AttendanceDate date,
+Status text check (Status IN ('Present','Absent','LEave')));
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1247" height="615" alt="Screenshot 2026-08-26 174111" src="https://github.com/user-attachments/assets/2c35e962-9e17-48e7-bd44-2705d5f11673" />
+
 
 **Question 9**
----
--- Paste Question 9 here
 
-```sql
--- Paste your SQL code below for Question 9
+Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
+
+## CODE:
+```
+ALTER TABLE Employees ADD COLUMN salary INTEGER check(salary>0);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1238" height="631" alt="Screenshot 2026-08-26 174122" src="https://github.com/user-attachments/assets/0af22e8c-850d-4638-b3f7-b0908adb9484" />
+
 
 **Question 10**
----
--- Paste Question 10 here
 
-```sql
--- Paste your SQL code below for Question 10
+Insert a product with ProductID 104, Name Tablet, and Category Electronics into the Products table, where Price and Stock should use default values.
+
+## CODE:
+```
+INSERT INTO Products(ProductID,Name,Category) VALUES (104,'Tablet','Electronics');
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1240" height="632" alt="Screenshot 2026-08-26 174136" src="https://github.com/user-attachments/assets/918123e9-7b80-4d55-ae30-fec954a04a2b" />
 
 
 ## RESULT
