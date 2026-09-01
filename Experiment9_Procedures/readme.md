@@ -60,15 +60,17 @@ Key Differences:
 - Use `DBMS_OUTPUT.PUT_LINE` to display the result.
 - Call the procedure with a number as input.
 
-### Code:
+**Expected Output:**  
+Square of 6 is 36
 
-```sql
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
 CREATE OR REPLACE PROCEDURE find_square(n NUMBER)
 IS
-    square NUMBER;
 BEGIN
-    square := n * n;
-    DBMS_OUTPUT.PUT_LINE('Square of ' || n || ' is ' || square);
+    DBMS_OUTPUT.PUT_LINE('Square of ' || n || ' is ' || (n * n));
 END;
 /
 
@@ -76,17 +78,10 @@ BEGIN
     find_square(6);
 END;
 /
-
 ```
+## OUTPUT:
 
-**Expected Output:**  
-Square of 6 is 36
-
-
-### Output:
-
-<img width="947" height="680" alt="image" src="https://github.com/user-attachments/assets/505f35c7-d3f3-4920-a857-2cf92827b836" />
-
+<img width="353" height="122" alt="Screenshot 2026-08-25 204320" src="https://github.com/user-attachments/assets/27a37c24-0d97-474a-bd7b-1b0af49f3a0c" />
 
 ---
 
@@ -99,9 +94,12 @@ Square of 6 is 36
 - Return the result using the `RETURN` statement.
 - Call the function using a `SELECT` statement or in an anonymous block.
 
-### Code:
+**Expected Output:**  
+Factorial of 5 is 120
+### PROGRAM:
+```
+SET SERVEROUTPUT ON;
 
-```sql
 CREATE OR REPLACE FUNCTION get_factorial(n NUMBER)
 RETURN NUMBER
 IS
@@ -119,17 +117,10 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Factorial of 5 is ' || get_factorial(5));
 END;
 /
-
 ```
+## OUTPUT:
 
-**Expected Output:**  
-Factorial of 5 is 120
-
-
-### Output:
-
-<img width="940" height="669" alt="image" src="https://github.com/user-attachments/assets/87e28cd6-8bd1-4f3b-b702-01f0fb120b07" />
-
+<img width="371" height="117" alt="Screenshot 2026-08-25 204705" src="https://github.com/user-attachments/assets/32ee62ae-2d8f-46c8-8a27-8788c3e5bf86" />
 
 ---
 
@@ -141,9 +132,12 @@ Factorial of 5 is 120
 - Use the `MOD` function to check if the number is divisible by 2.
 - Display whether it is Even or Odd using `DBMS_OUTPUT.PUT_LINE`.
 
-### Code:
+**Expected Output:**  
+12 is Even
 
-```sql
+### PROGRAM:
+```
+SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE PROCEDURE check_even_odd(n NUMBER)
 IS
@@ -160,16 +154,11 @@ BEGIN
     check_even_odd(12);
 END;
 /
-
 ```
 
-**Expected Output:**  
-12 is Even
+## OUTPUT:
 
-### Output:
-
-<img width="894" height="654" alt="image" src="https://github.com/user-attachments/assets/ad4fa8c0-a02f-4122-9c08-10110d22dbc5" />
-
+<img width="425" height="118" alt="Screenshot 2026-08-25 204902" src="https://github.com/user-attachments/assets/fb717a0d-57e7-4471-88ca-dd916d9cc95f" />
 
 ---
 
@@ -182,21 +171,20 @@ END;
 - Return the reversed number.
 - Call the function and display the output.
 
-
-### Code:
-
-```sql
+**Expected Output:**  
+Reversed number of 1234 is 4321
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE FUNCTION reverse_number(n NUMBER)
 RETURN NUMBER
 IS
     num NUMBER := n;
     rev NUMBER := 0;
-    digit NUMBER;
 BEGIN
     WHILE num > 0 LOOP
-        digit := MOD(num, 10);
-        rev := rev * 10 + digit;
+        rev := rev * 10 + MOD(num, 10);
         num := TRUNC(num / 10);
     END LOOP;
 
@@ -205,20 +193,13 @@ END;
 /
 
 BEGIN
-    DBMS_OUTPUT.PUT_LINE(
-        'Reversed number of 1234 is ' || reverse_number(1234)
-    );
+    DBMS_OUTPUT.PUT_LINE('Reversed number of 1234 is ' || reverse_number(1234));
 END;
 /
 ```
+## OUTPUT:
 
-**Expected Output:**  
-Reversed number of 1234 is 4321
-
-### Ouput:
-
-<img width="943" height="651" alt="image" src="https://github.com/user-attachments/assets/0744f999-55c7-4500-a98f-073280379828" />
-
+<img width="332" height="135" alt="Screenshot 2026-08-25 205158" src="https://github.com/user-attachments/assets/3818fa93-dd0e-44bf-b2ff-a05d110c7054" />
 
 ---
 
@@ -230,9 +211,17 @@ Reversed number of 1234 is 4321
 - Use a loop from 1 to 10 to multiply the input number.
 - Display the multiplication results using `DBMS_OUTPUT.PUT_LINE`.
 
-### Code:
+**Expected Output:**  
+Multiplication table of 5:  
+5 x 1 = 5  
+5 x 2 = 10  
+5 x 3 = 15  
+...  
+5 x 10 = 50
 
-```sql
+## PROGRAM:
+```
+SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE PROCEDURE print_table(n NUMBER)
 IS
@@ -249,21 +238,11 @@ BEGIN
     print_table(5);
 END;
 /
-
 ```
 
-**Expected Output:**  
-Multiplication table of 5:  
-5 x 1 = 5  
-5 x 2 = 10  
-5 x 3 = 15  
-...  
-5 x 10 = 50
+## OUTPUT:
 
-
-### Output:
-
-<img width="926" height="663" alt="image" src="https://github.com/user-attachments/assets/659af336-58bc-4e38-9c88-18e744f4bb30" />
+<img width="396" height="328" alt="Screenshot 2026-08-25 205420" src="https://github.com/user-attachments/assets/6ad8c05d-3c16-4a3a-b6c8-b2d2d3a6e783" />
 
 
 ## RESULT
